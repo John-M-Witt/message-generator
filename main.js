@@ -36,14 +36,14 @@ outlookGenerator () {return this.outlookOptions[Math.floor(Math.random()*4)];},
 console.log('Your fortune for today is:');
 console.log(messageGenerator.fortune[messageGenerator.fortuneGenerator()]);
 
-// //Randomly select seven lucky numbers 
+// //Randomly selects seven lucky numbers 
 console.log('Your lucky numbers for today are:');
 for(i=0; i<6; i++) {
     messageGenerator.luckyNumbers.push(messageGenerator.luckyNumberGenerator());
     }
 console.log(messageGenerator.luckyNumbers);
 
-//Randomly select near and long-term outlook
+//Randomly selects near and long-term outlook
 let nearTermOutlook = messageGenerator.outlookGenerator();
 let longTermOutlook = messageGenerator.outlookGenerator();
 
