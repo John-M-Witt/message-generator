@@ -1,4 +1,5 @@
-const fortune = [
+//List of 20 possible fortunes
+const messageGenerator = {fortune: [  
 'Delight the world with compassion, kindness and grace',
 'The early bird gets the worm, but the second mouse gets the cheese.',
 'Some days you are pigeon, some days you are statue. Today, bring umbrella.',
@@ -19,31 +20,32 @@ const fortune = [
 'Patience is your alley at the moment. Don\’t worry!',
 'Nothing is impossible to a willing heart.',
 'Don\’t worry about money. The best things in life are free.'
-];
-
-// Array to hold 6 randomly generated numbers between 1 and 100 using the luckyNumberGenerator
-const luckyNumbers = [];
-const luckyNumberGenerator = () => Math.floor(Math.random()*100);
-const outlookGenerator = () => Math.floor(Math.random()*5);
-
-// Short and LT Outlook Variables
-const nearOutlookOptions = ['Positive', 'Negative', 'Stable', 'Unclear'];
-const longTermOutlookOptions = ['Positive', 'Negative', 'Stable', 'Unclear'];
+],
+fortuneGenerator () {
+    return Math.floor(Math.random()*this.fortune.length)
+},
+luckyNumbers: [],
+luckyNumberGenerator () { 
+    return Math.floor(Math.random()*100)
+},
+outlookOptions: ['Positive', 'Negative', 'Stable', 'Unclear'],
+outlookGenerator () {return this.outlookOptions[Math.floor(Math.random()*4)];},
+}
 
 //Randomly select fortune
 console.log('Your fortune for today is:');
-const TodaysFortune = fortune[Math.floor(Math.random()*fortune.length)]
-console.log(TodaysFortune);
+console.log(messageGenerator.fortune[messageGenerator.fortuneGenerator()]);
 
-//Randomly select seven lucky numbers 
+// //Randomly select seven lucky numbers 
 console.log('Your lucky numbers for today are:');
 for(i=0; i<6; i++) {
-    luckyNumbers.push(luckyNumberGenerator());
+    messageGenerator.luckyNumbers.push(messageGenerator.luckyNumberGenerator());
     }
-console.log(luckyNumbers);
+console.log(messageGenerator.luckyNumbers);
 
 //Randomly select near and long-term outlook
-let nearTermOutlook = nearOutlookOptions[outlookGenerator()];
-let longTermOutlook = longTermOutlookOptions[outlookGenerator()];
+let nearTermOutlook = messageGenerator.outlookGenerator();
+let longTermOutlook = messageGenerator.outlookGenerator();
+
 console.log(`Your near-term and long-term outlooks are ${nearTermOutlook} and ${longTermOutlook}, respectively.`)
 
